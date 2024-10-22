@@ -1,0 +1,6 @@
+@LoyaltyManagement.Reward.Api_HostAddress = http://localhost:5128
+
+GET {{LoyaltyManagement.Reward.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

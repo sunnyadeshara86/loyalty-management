@@ -1,0 +1,6 @@
+@LoyaltyManagement.CustomEvent.Api_HostAddress = http://localhost:5046
+
+GET {{LoyaltyManagement.CustomEvent.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
