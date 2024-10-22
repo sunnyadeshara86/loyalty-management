@@ -11,19 +11,19 @@ pipeline {
         stage('Restore Packages') {
             steps {
                 // Restore NuGet packages
-                sh 'dotnet restore YourSolution.sln'
+                sh 'dotnet restore LoyaltyManagement.sln'
             }
         }
         stage('Build') {
             steps {
                 // Build the solution
-                sh 'dotnet build YourSolution.sln --configuration Release'
+                sh 'dotnet build LoyaltyManagement.sln --configuration Release'
             }
         }
         stage('Test') {
             steps {
                 // Run the tests
-                sh 'dotnet test YourSolution.sln --configuration Release'
+                sh 'dotnet test LoyaltyManagement.sln --configuration Release'
             }
         }
         stage('Publish') {
