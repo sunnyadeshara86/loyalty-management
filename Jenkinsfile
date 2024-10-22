@@ -5,7 +5,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Checkout the code from the repository
-                git 'https://github.com/your-repo.git'
+                git 'https://github.com/sunnyadeshara86/loyalty-management.git'
             }
         }
         stage('Restore Packages') {
