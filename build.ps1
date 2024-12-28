@@ -1,7 +1,6 @@
 # Variables
 $projectPath = "D:\AWS\LoyaltyManagement"
 $nugetSource = "http://ec2-13-233-97-29.ap-south-1.compute.amazonaws.com:8082/artifactory/api/nuget/v3/nuget-local"
-$apiKey = "" # or username:password if using basic auth
 $versionFilePath = "$projectPath\version.txt" # File to store the current version
 
 # Navigate to the mono repo directory
