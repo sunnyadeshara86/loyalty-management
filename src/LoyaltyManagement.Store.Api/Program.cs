@@ -1,12 +1,6 @@
-using FluentValidation;
 using LoyaltyManagement.Store.Api.Middlewares;
-using LoyaltyManagement.Store.Application.Queries;
 using LoyaltyManagement.Store.Application.Registries;
-using LoyaltyManagement.Store.Core.Repositories;
-using LoyaltyManagement.Store.Persistence.Repositories;
-using MediatR;
 using MongoDB.Driver;
-using System.Reflection;
 
 namespace LoyaltyManagement.Store.Api
 {
@@ -32,10 +26,8 @@ namespace LoyaltyManagement.Store.Api
                 return client.GetDatabase(databaseName);
             });
 
-            builder.Services.AddScoped<IStoreRepository, StoreRepository>();
-
             builder.Services.RegisterApplicationServices();
-            
+
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();

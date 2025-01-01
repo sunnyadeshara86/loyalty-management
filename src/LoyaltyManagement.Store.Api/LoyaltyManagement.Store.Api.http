@@ -1,7 +1,7 @@
 @LoyaltyManagement.Store.Api_HostAddress = http://localhost:5077
 
 ### Get All Stores
-GET http://localhost:5077/api/Stores
+GET http://localhost:5077/api/stores
 Accept: application/json
 
 ###

@@ -1,4 +1,8 @@
 
+using LoyaltyManagement.Tier.Api.Middlewares;
+using LoyaltyManagement.Tier.Application.Registries;
+using MongoDB.Driver;
+
 namespace LoyaltyManagement.Tier.Api
 {
     public class Program
@@ -8,8 +12,23 @@ namespace LoyaltyManagement.Tier.Api
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-
             builder.Services.AddControllers();
+
+            builder.Services.AddSingleton<IMongoClient>(sp =>
+            {
+                var connectionString = builder.Configuration["MongoDbSettings:ConnectionString"];
+                return new MongoClient(connectionString);
+            });
+
+            builder.Services.AddSingleton(sp =>
+            {
+                var client = sp.GetRequiredService<IMongoClient>();
+                var databaseName = builder.Configuration["MongoDbSettings:DatabaseName"];
+                return client.GetDatabase(databaseName);
+            });
+
+            builder.Services.RegisterApplicationServices();
+
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
@@ -27,8 +46,8 @@ namespace LoyaltyManagement.Tier.Api
 
             app.UseAuthorization();
 
-
             app.MapControllers();
+            app.UseMiddleware<ValidationExceptionMiddleware>();
 
             app.Run();
         }

@@ -1,6 +1,41 @@
-@LoyaltyManagement.Tier.Api_HostAddress = http://localhost:5146
-
-GET {{LoyaltyManagement.Tier.Api_HostAddress}}/weatherforecast/
+### Get All Tiers
+GET http://localhost:5146/api/tiers
 Accept: application/json
 
-###
+### Get Tier by ID
+GET http://localhost:5146/api/tiers/1
+Accept: application/json
+
+### Create a New Tier
+POST http://localhost:5146/api/tiers
+Content-Type: application/json
+
+{
+  "code": "TIER001",
+  "name": "Gold Tier",
+  "description": "This is the Gold Tier description",
+  "hasPhoto": true,
+  "storeId": 123,
+  "sortOrder": 1,
+  "isDefault": false,
+  "isActive": true
+}
+
+### Update an Existing Tier
+PUT http://localhost:5146/api/tiers/1
+Content-Type: application/json
+
+{
+  "id": 1,
+  "code": "TIER001",
+  "name": "Updated Gold Tier",
+  "description": "This is the updated Gold Tier description",
+  "hasPhoto": true,
+  "storeId": 123,
+  "sortOrder": 2,
+  "isDefault": true,
+  "isActive": true
+}
+
+### Delete a Tier
+DELETE http://localhost:5146/api/tiers/1

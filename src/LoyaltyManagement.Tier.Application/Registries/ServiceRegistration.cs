@@ -1,10 +1,10 @@
-﻿using MediatR;
+﻿using FluentValidation;
+using LoyaltyManagement.Store.Application.Queries;
+using LoyaltyManagement.Store.Application.Validations;
+using LoyaltyManagement.Tier.Core.Repositories;
+using LoyaltyManagement.Tier.Persistence.Repositories;
+using MediatR;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LoyaltyManagement.Tier.Application.Registries
 {
@@ -12,13 +12,13 @@ namespace LoyaltyManagement.Tier.Application.Registries
     {
         public static void RegisterApplicationServices(this IServiceCollection services)
         {
-            //services.AddMediatR(typeof(GetAllStoresQuery).Assembly);
+            services.AddMediatR(typeof(GetAllTiersHandler).Assembly);
 
-            //services.AddScoped<IStoreRepository, StoreRepository>();
+            services.AddScoped<ITierRepository, TierRepository>();
 
-            //services.AddValidatorsFromAssemblyContaining<CreateStoreCommandValidator>();
+            services.AddValidatorsFromAssemblyContaining<CreateTierCommandValidator>();
 
-            //services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
         }
     }
 }
