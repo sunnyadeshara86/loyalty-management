@@ -1,6 +1,6 @@
 ﻿namespace LoyaltyManagement.Segment.Core.Models
 {
-    public class Segment
+    public class SegmentModel
     {
         public int Id { get; set; }
         public string Code { get; set; } = string.Empty;

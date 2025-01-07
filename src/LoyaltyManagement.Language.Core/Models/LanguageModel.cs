@@ -1,6 +1,6 @@
 ﻿namespace LoyaltyManagement.Language.Core.Models
 {
-    public class Language
+    public class LanguageModel
     {
         public int Id { get; set; }
         public string LocaleCode { get; set; } = string.Empty;

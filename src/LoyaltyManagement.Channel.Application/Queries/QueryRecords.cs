@@ -1,6 +1,8 @@
-﻿namespace LoyaltyManagement.Channel.Application.Queries
+﻿using LoyaltyManagement.Channel.Core.Models;
+using MediatR;
+
+namespace LoyaltyManagement.Channel.Application.Queries
 {
-    public class QueryRecords
-    {
-    }
+    public record GetAllChannelsQuery : IRequest<IEnumerable<ChannelModel>>;
+    public record GetChannelByIdQuery(int Id) : IRequest<ChannelModel>;
 }

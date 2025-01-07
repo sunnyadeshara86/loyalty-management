@@ -40,5 +40,4 @@ namespace LoyaltyManagement.Store.Persistence.Repositories
             await _storeCollection.DeleteOneAsync(filter);
         }
     }
-
 }
