@@ -20,17 +20,17 @@ namespace LoyaltyManagement.Reward.Api.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var Rewards = await _mediator.Send(new GetAllRewardCategoriesQuery());
-            return Ok(Rewards);
+            var rewardCategories = await _mediator.Send(new GetAllRewardCategoriesQuery());
+            return Ok(rewardCategories);
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
-            var Reward = await _mediator.Send(new GetRewardCategoryByIdQuery(id));
-            if (Reward == null)
+            var rewardCategory = await _mediator.Send(new GetRewardCategoryByIdQuery(id));
+            if (rewardCategory == null)
                 return NotFound();
-            return Ok(Reward);
+            return Ok(rewardCategory);
         }
 
         [HttpPost]
