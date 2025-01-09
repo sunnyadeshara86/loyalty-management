@@ -12,7 +12,7 @@ namespace LoyaltyManagement.Channel.Application.Registries
     {
         public static void RegisterApplicationServices(this IServiceCollection services)
         {
-            services.AddMediatR(typeof(GetAllChannelsQuery).Assembly);
+            services.AddMediatR(typeof(GetAllChannelsHandler).Assembly);
 
             services.AddScoped<IChannelRepository, ChannelRepository>();
 

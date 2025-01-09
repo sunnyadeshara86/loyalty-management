@@ -20,17 +20,17 @@ namespace LoyaltyManagement.Member.Api.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var stores = await _mediator.Send(new GetAllMembersQuery());
-            return Ok(stores);
+            var members = await _mediator.Send(new GetAllMembersQuery());
+            return Ok(members);
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
-            var store = await _mediator.Send(new GetMemberByIdQuery(id));
-            if (store == null)
+            var member = await _mediator.Send(new GetMemberByIdQuery(id));
+            if (member == null)
                 return NotFound();
-            return Ok(store);
+            return Ok(member);
         }
 
         [HttpPost]

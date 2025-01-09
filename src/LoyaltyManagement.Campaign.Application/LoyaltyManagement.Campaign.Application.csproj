@@ -11,4 +11,9 @@
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.11.0" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
   </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LoyaltyManagement.Campaign.Core\LoyaltyManagement.Campaign.Core.csproj" />
+    <ProjectReference Include="..\LoyaltyManagement.Campaign.Persistence\LoyaltyManagement.Campaign.Persistence.csproj" />
+  </ItemGroup>
 </Project>

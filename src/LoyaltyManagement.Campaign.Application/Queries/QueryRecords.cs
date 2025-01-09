@@ -1,6 +1,8 @@
-﻿namespace LoyaltyManagement.Campaign.Application.Queries
+﻿using LoyaltyManagement.Campaign.Core.Models;
+using MediatR;
+
+namespace LoyaltyManagement.Campaign.Application.Queries
 {
-    public class QueryRecords
-    {
-    }
+    public record GetAllCampaignsQuery : IRequest<IEnumerable<CampaignModel>>;
+    public record GetCampaignByIdQuery(int Id) : IRequest<CampaignModel>;
 }

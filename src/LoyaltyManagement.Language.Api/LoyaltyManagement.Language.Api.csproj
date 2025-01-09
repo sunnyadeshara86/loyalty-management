@@ -12,4 +12,8 @@
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\LoyaltyManagement.Language.Application\LoyaltyManagement.Language.Application.csproj" />
+  </ItemGroup>
+
 </Project>

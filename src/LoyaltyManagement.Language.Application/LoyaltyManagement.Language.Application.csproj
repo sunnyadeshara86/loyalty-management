@@ -14,5 +14,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\LoyaltyManagement.Language.Core\LoyaltyManagement.Language.Core.csproj" />
+    <ProjectReference Include="..\LoyaltyManagement.Language.Persistence\LoyaltyManagement.Language.Persistence.csproj" />
   </ItemGroup>
 </Project>

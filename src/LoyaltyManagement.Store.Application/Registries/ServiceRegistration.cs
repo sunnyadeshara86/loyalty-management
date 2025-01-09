@@ -12,7 +12,7 @@ namespace LoyaltyManagement.Store.Application.Registries
     {
         public static void RegisterApplicationServices(this IServiceCollection services)
         {
-            services.AddMediatR(typeof(GetAllStoresQuery).Assembly);
+            services.AddMediatR(typeof(GetAllStoresHandler).Assembly);
 
             services.AddScoped<IStoreRepository, StoreRepository>();
 
