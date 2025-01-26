@@ -17,5 +17,6 @@
   <ItemGroup>
     <ProjectReference Include="..\LoyaltyManagement.Member.Core\LoyaltyManagement.Member.Core.csproj" />
     <ProjectReference Include="..\LoyaltyManagement.Member.Persistence\LoyaltyManagement.Member.Persistence.csproj" />
+    <ProjectReference Include="..\LoyaltyManagement.WebhookEvent.Application\LoyaltyManagement.WebhookEvent.Application.csproj" />
   </ItemGroup>
 </Project>

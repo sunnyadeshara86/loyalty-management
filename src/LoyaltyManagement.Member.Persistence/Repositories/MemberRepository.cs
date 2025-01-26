@@ -1,5 +1,6 @@
 ﻿using LoyaltyManagement.Member.Core.Models;
 using LoyaltyManagement.Member.Core.Repositories;
+using LoyaltyManagement.WebhookEvent.Core.Models;
 using MongoDB.Driver;
 
 namespace LoyaltyManagement.Member.Persistence.Repositories
@@ -25,6 +26,7 @@ namespace LoyaltyManagement.Member.Persistence.Repositories
 
         public async Task CreateAsync(MemberModel member)
         {
+            member.AddDomainEvent(new CustomerRegistered(member.FirstName));
             await _memberRepository.InsertOneAsync(member);
         }
 

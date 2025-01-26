@@ -1,6 +1,9 @@
-﻿namespace LoyaltyManagement.Member.Core.Models
+﻿using LoyaltyManagement.WebhookEvent.Core.Base;
+using System.Xml.Linq;
+
+namespace LoyaltyManagement.Member.Core.Models
 {
-    public class MemberModel
+    public class MemberModel : Entity
     {
         public int Id { get; set; }
         public int ReferralId { get; set; }
