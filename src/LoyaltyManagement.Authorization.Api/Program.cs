@@ -1,4 +1,7 @@
 
+using LoyaltyManagement.Authorization.Api.Middlewares;
+using Serilog;
+
 namespace LoyaltyManagement.Authorization.Api
 {
     public class Program
@@ -6,6 +9,14 @@ namespace LoyaltyManagement.Authorization.Api
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+            // Configure Serilog
+            Log.Logger = new LoggerConfiguration()
+                .Enrich.FromLogContext()
+                .WriteTo.File("logs/middleware-log-.txt", rollingInterval: RollingInterval.Day, retainedFileCountLimit: 7)
+                .CreateLogger();
+
+            builder.Host.UseSerilog();
 
             // Add services to the container.
 
@@ -27,6 +38,7 @@ namespace LoyaltyManagement.Authorization.Api
 
             app.UseAuthorization();
 
+            app.UseMiddleware<RequestLoggingMiddleware>();
 
             app.MapControllers();
 

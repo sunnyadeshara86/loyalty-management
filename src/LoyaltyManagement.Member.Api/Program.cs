@@ -1,6 +1,7 @@
 using LoyaltyManagement.Member.Api.Middlewares;
 using LoyaltyManagement.Member.Application.Registries;
 using MongoDB.Driver;
+using Serilog;
 
 namespace LoyaltyManagement.Member.Api
 {
@@ -9,6 +10,14 @@ namespace LoyaltyManagement.Member.Api
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+            // Configure Serilog
+            Log.Logger = new LoggerConfiguration()
+                .Enrich.FromLogContext()
+                .WriteTo.File("logs/middleware-log-.txt", rollingInterval: RollingInterval.Day, retainedFileCountLimit: 7)
+                .CreateLogger();
+
+            builder.Host.UseSerilog();
 
             // Add services to the container.
             builder.Services.AddControllers();
@@ -44,6 +53,8 @@ namespace LoyaltyManagement.Member.Api
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
+
+            app.UseMiddleware<RequestLoggingMiddleware>();
 
             app.MapControllers();
             app.UseMiddleware<ValidationExceptionMiddleware>();
